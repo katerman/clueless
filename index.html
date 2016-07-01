@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Clueless</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./bower_components/bootswatch/journal/bootstrap.min.css">
+		<link rel="stylesheet" href="./public/css/site.css">
+	</head>
+	<body>
+
+		<div id="app"></div>
+
+		<script src="./bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+		<script src="./public/js/bundle.js" charset="utf-8"></script>
+		<script>
+
+			(function($){
+				//Shouldn't really be doing this here. Shouldn't manipulate the dom when its react's job.
+				$(window).on('scroll', function(){
+					var windowTop = $(this).scrollTop();
+					var containerOffsetTop = $('.table-container').offset().top;
+					if( windowTop > containerOffsetTop ){
+						$('.table .fixed-header').each(function(k,v){
+							$(v).addClass('fixed');
+							$(v).css('max-width', $(v).parent().parent().innerWidth());
+						});
+					} else {
+						$('.table .fixed-header').removeClass('fixed');
+					}
+				});
+
+			})(jQuery);
+
+		</script>
+
+	</body>
+</html>
