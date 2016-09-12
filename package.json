@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "browserify ./assets/main.jsx -o ./public/js/bundle.js -v",
+    "build:dev": "watchify ./assets/main.jsx -o ./public/js/bundle.js -vd"
   },
   "author": "",
   "license": "ISC",
